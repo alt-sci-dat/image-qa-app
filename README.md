@@ -1,12 +1,5 @@
-# ask-question-image-web-app-streamlit-langchain
+# Ask-Me-A-Question-Image-Oriented
 
-
-<p align="center">
-<a href="https://www.youtube.com/watch?v=71EOM5__vkI">
-    <img width="600" src="https://utils-computervisiondeveloper.s3.amazonaws.com/thumbnails/with_play_button/ask_question_image.jpg" alt="Watch the video">
-    </br>Watch on YouTube: Ask questions to an image using Python, Streamlit and Langchain !
-</a>
-</p>
 
 This is a Streamlit application that allows users to ask questions about an uploaded image and receive responses from a conversational AI agent. The agent uses the OpenAI GPT-3.5 Turbo model to generate answers based on the provided image and user input.
 
