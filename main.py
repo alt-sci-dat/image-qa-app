@@ -1,6 +1,6 @@
 from tempfile import NamedTemporaryFile
 import os
-from transformers import AutoModelForCausalLM, AutoTokenizer
+# from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 from pydantic import BaseModel, Field
 from ultralytics import YOLO
@@ -14,8 +14,11 @@ import numpy as np
 
 # Initialize tools
 caption_tool = ImageCaptionTool()
-detection_model = YOLO('yolov8n.pt')  # Using YOLOv8 nano model
+# detection_model = YOLO('yolov8n.pt')  # Using YOLOv8 nano model
 reader = easyocr.Reader(['en'])  # Initialize EasyOCR for English text
+
+def get_detection_model():
+    return YOLO('yolov8n.pt')
 
 def detect_text_in_image(image_path):
     """Detect and read text from the image"""
@@ -203,6 +206,7 @@ if file:
                 caption = caption_tool._run(temp_path)
                 
                 # Get object detections using YOLOv8
+                detection_model = get_detection_model()
                 results = detection_model(temp_path)
                 detections = results[0].boxes.data.tolist()
                 class_names = results[0].names
